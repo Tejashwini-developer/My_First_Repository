@@ -17,9 +17,7 @@ public class TestRestController {
 			@PathVariable String myJob, @PathVariable("myCity") String city) {
 		
 		//Request url for postman = http://localhost:8080/MyRestProject/getInvitation/Java Development with kafka/Bangalore?myName=Tejashwini Tiraki&myId=103
-		
-		
-		
+	
 		String msg = "Hello!! your name is " + name 
 				+ " and your ID is " + id 
 				+ " you are invited to my first Rest app!! "
