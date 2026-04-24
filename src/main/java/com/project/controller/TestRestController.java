@@ -16,7 +16,9 @@ public class TestRestController {
 	public ResponseEntity<String> getInvitation(@RequestParam("myName") String name, @RequestParam("myId") int id, 
 			@PathVariable String myJob, @PathVariable("myCity") String city) {
 		
-		//request url= http://localhost:8080/MyRestProject/getInvitation/Java Development with kafka/Bangalore?myName=Tejashwini Tiraki&myId=103
+		//Request url= http://localhost:8080/MyRestProject/getInvitation/Java Development with kafka/Bangalore?myName=Tejashwini Tiraki&myId=103
+		
+		
 		
 		String msg = "Hello!! your name is " + name 
 				+ " and your ID is " + id 
