@@ -17,7 +17,6 @@ spec:
         image: tejashwini97/spring-app:20260430-1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-		
+        - containerPort: 8080		
 		
         
