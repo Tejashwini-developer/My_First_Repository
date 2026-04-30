@@ -13,8 +13,8 @@ spec:
         app: spring-app
     spec:
       containers:
-            - name: spring-app-container
+      - name: spring-app-container
         image: spring-app:local
         imagePullPolicy: Never
         ports:
-                - containerPort: 8080
+        - containerPort: 8080
