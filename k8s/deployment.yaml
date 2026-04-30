@@ -14,10 +14,8 @@ spec:
     spec:
       containers:
       - name: spring-app-container
-        image: spring-app:local
-        imagePullPolicy: Never
+        image: tejashwini97/spring-app:20260430-1
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        env:
-        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
-          value: "host.k3d.internal:9092"
+        
