@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-app-deploy
+  labels:
+    app: spring-app
 spec:
   replicas: 1
   selector:
@@ -18,3 +20,20 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
+        env:
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: "host.k3d.internal:9092"
+        - name: SPRING_KAFKA_CONSUMER_GROUP_ID
+          value: "spring-app-group"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 5
