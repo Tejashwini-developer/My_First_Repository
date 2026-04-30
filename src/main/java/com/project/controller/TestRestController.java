@@ -32,3 +32,64 @@ public class TestRestController {
 	
 
 }
+
+
+
+/*
+
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+sudo update-alternatives --config java  # pick 17
+sudo update-alternatives --config javac # pick 17
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
+java -version
+mvn clean package -DskipTests
+docker-compose up --build
+
+curl -X POST "http://localhost:8080/kafka/send?message=tejashwini-kafka-message"
+http://localhost:8080/MyRestProject/getInvitation/Java Development with kafka/Bangalore?myName=Tejashwini Tiraki&myId=103
+
+
+docker-compose down   //Stop all Docker containers
+docker rmi -f $(docker images -aq)  //remove all images (docker images -aq → lists ALL image IDs, including hidden ones docker rmi -f → force remove all of them)
+docker volume rm $(docker volume ls -q)  //removes ALL volumes
+docker-compose up --build
+docker-compose logs app --tail=10
+docker-compose exec kafka kafka-topics --bootstrap-server localhost:9092 --list
+docker-compose ps
+
+docker build -t spring-app
+docker run -p 8080:8080 spring-app
+================================================================
+
+Final clean command sequence for interview:bash
+
+# 1. Setup - only once
+sudo apt update
+sudo apt install openjdk-17-jdk maven docker.io docker-compose -y
+sudo update-alternatives --config java  # pick 17
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+java -version
+
+# 2. Build + Run
+mvn clean package -DskipTests
+docker-compose up --build -d  # -d = detached
+
+# 3. Verify
+docker-compose ps  # check all Up
+docker-compose logs app | grep Mapped  # check /kafka/send loaded
+
+# 4. Test producer(in terminal)
+curl -X POST "http://localhost:8080/kafka/send?message=accenture-rocks"
+
+# 5. Check consumer
+docker-compose logs app --tail=5  # Should see "Received: accenture-rocks"
+
+# 6. Cleanup
+docker-compose down
+
+
+
+*/
